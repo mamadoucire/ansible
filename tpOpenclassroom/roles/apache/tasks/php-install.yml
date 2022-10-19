@@ -1,0 +1,7 @@
+---
+- name: installation php
+  yum:
+    name: "php,php-mysql,php-xml,php-mbstring,php-gd,php-init"
+    state: latest
+  changed_when: yes
+  notify: [ "apache restart"]

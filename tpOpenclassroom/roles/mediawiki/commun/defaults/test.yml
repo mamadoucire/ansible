@@ -1,0 +1,13 @@
+---
+- name: Set up autoupdates
+  yum:
+    name: yum-corn
+    state: "present"
+
+- name: Ensure auto updates are running
+  service:
+    name: yum-corn
+    state: started
+    enabled: yes
+  
+  

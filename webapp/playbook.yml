@@ -1,0 +1,11 @@
+---
+- name: install node exporter
+  hosts: all
+  remote_user: admroot
+  become_user: root
+  become: yes
+  become_method: su
+  vars:
+    ansible_become_password: linux
+  roles:
+  - node_exporter

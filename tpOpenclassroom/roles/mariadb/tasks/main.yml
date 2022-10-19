@@ -1,0 +1,20 @@
+---
+- name: mariadb-server
+  yum:
+    name: "mariadb"
+    state: "present"
+
+- name: start mariadb mariadb-server
+  service:
+    name: "mariadb"
+    state: "started"
+    enabled: yes
+
+- name: change 50-server.cnf
+  command:
+    /usr/bin/sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mysql/mariadb.conf.d/50-server.cnf
+
+- name: restart mariadb
+  service:
+    name: "mariadb"
+    state: "restarted"

@@ -1,0 +1,10 @@
+---
+- name: installation git
+  ansible.builtin.yum:
+    name: "{{ item }}"
+    state: latest
+  vars:
+   item:
+     - htop
+     - git
+     - zsh

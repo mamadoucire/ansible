@@ -1,0 +1,16 @@
+---
+- name: Creation d'un utilisateur
+  user:
+   name: diane
+   comment: "Mon user"
+   shell: /usr/bin/zsh
+
+- name: autorise key
+  ansible.posix.authorized_key:
+    user: mamadou
+    state: present
+    key: "{{ lookup('file', '~/.ssh/id_ecdsa.pub') }}"
+
+- name: l'utilisateur devient sudoers
+  when: user is defined
+  template: src=sudoers.j2 dest=/etc/sudoers.d/mamadou-sudoer validate='visudo -cf %s'

@@ -1,0 +1,12 @@
+---
+  
+- name: installation nginx
+  become: yes
+  yum: name=httpd state=latest
+
+- name: start nginx
+  become: yes
+  service:
+    name: nginx
+    state: started
+    enabled: true

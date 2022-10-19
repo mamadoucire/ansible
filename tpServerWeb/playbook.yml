@@ -1,0 +1,8 @@
+---
+- name: Installation serveur web
+  hosts: serverweb
+  remote_user: root
+
+
+  tasks:
+    - name: Insta

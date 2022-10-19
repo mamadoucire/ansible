@@ -1,0 +1,11 @@
+---
+- name: Installation des serveur web
+  hosts: webserver
+  become: yes
+  remote_user: root
+
+
+  roles:
+   - user 
+   - utils
+   - nginx
